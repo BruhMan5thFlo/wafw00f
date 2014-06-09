@@ -562,13 +562,13 @@ class WafW00F(waftoolsengine):
         return False
 
     def is360wzb(self):
-        return self.matchheader(('X-Powered-By-360WZB', '.+'))
+        return self.matchheader(('X-Powered-By-360WZB', '.'))
 
     def isanquanbao(self):
-        return self.matchheader(('X-Powered-By-Anquanbao', '.+'))
+        return self.matchheader(('X-Powered-By-Anquanbao', '.'))
 
     def ischinacache(self):
-        return self.matchheader(('Powered-By-ChinaCache', '.+'))
+        return self.matchheader(('Powered-By-ChinaCache', '.'))
 
     def ispowercdn(self):
         return self.matchheader(('PowerCDN', '.+'))
@@ -612,7 +612,8 @@ class WafW00F(waftoolsengine):
     wafdetections['ChinaCache-CDN'] = ischinacache
     wafdetections['PowerCDN'] = ispowercdn
     wafdetections['West263CDN'] = iswest263cdn
-    wafdetectionsprio = ['Profense', 'NetContinuum', 'Incapsula', 'Cloud Flare',
+    wafdetectionsprio = ['Profense', 'NetContinuum', 'Incapsula', 'Cloud Flare', 
+                         '360WangZhanBao','Anquanbao', 'ChinaCache-CDN', 'PowerCDN', 'West263CDN',
                          'Secure Entry Server', 'Cisco ACE XML Gateway',
                          'Barracuda', 'HyperGuard', 'BinarySec', 'Teros',
                          'F5 Trafficshield', 'F5 ASM', 'Airlock', 'Citrix NetScaler',
